@@ -1,0 +1,20 @@
+{
+  "name": "game-server",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "scripts": {
+    "start": "tsx server.ts",
+    "dev": "tsx watch server.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "tsx": "^4.19.2",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^20.5.0",
+    "@types/ws": "^8.5.5",
+    "typescript": "^5.1.6"
+  }
+}
