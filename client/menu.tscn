@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bw360lpf6cg35"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 146.0
+offset_right = 744.0
+offset_bottom = 206.0
+scroll_active = false
