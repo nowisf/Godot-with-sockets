@@ -6,3 +6,5 @@
 [x] escalar fondo empezada
 
 [ ] poder saltar mientras se va bajando, que no se despegue del suelo
+[ ] sistema de impulso   
+[x] boton de reset position
