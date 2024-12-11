@@ -21,6 +21,9 @@ script = ExtResource("2_e5hk1")
 JUMP_VELOCITY = -500.0
 metadata/_edit_group_ = true
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = false
+
 [node name="Pelota" type="Sprite2D" parent="Player"]
 rotation = 6.28319
 scale = Vector2(0.305, 0.305)
@@ -28,21 +31,6 @@ texture = ExtResource("3_gcext")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_h7kkq")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-enabled = false
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(561, 573)
-metadata/_edit_group_ = true
-
-[node name="Puerta" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(0, 8.9407e-07)
-scale = Vector2(1, 0.997067)
-texture = ExtResource("4_wpskf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_w61m5")
 
 [node name="LoginUI" type="Control" parent="."]
 layout_mode = 3
@@ -76,6 +64,130 @@ offset_top = 377.0
 offset_right = 621.0
 offset_bottom = 418.0
 text = "Join"
+
+[node name="Puertas" type="Node2D" parent="."]
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Puertas"]
+position = Vector2(-565, -192)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D5"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Puertas"]
+position = Vector2(1125, 554)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D6"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D6"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Puertas"]
+position = Vector2(2815, 1300)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D7"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D7"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Puertas"]
+position = Vector2(4038, 1741)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D4"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Puertas"]
+position = Vector2(850, 553)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D8"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D8"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Puertas"]
+position = Vector2(210, 928)
+rotation = -1.29099
+scale = Vector2(1, 14.7078)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D2"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Puertas"]
+position = Vector2(561, 573)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Puertas"]
+position = Vector2(1525, 554)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D9"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D9"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="Puertas"]
+position = Vector2(2025, 554)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D10"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D10"]
+shape = SubResource("RectangleShape2D_w61m5")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="Puertas"]
+position = Vector2(2625, 554)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="Puertas/StaticBody2D11"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/StaticBody2D11"]
+shape = SubResource("RectangleShape2D_w61m5")
 
 [connection signal="me_movi" from="Player" to="." method="_on_player_me_movi"]
 [connection signal="pressed" from="LoginUI/LoginButton" to="." method="_on_login_button_pressed"]

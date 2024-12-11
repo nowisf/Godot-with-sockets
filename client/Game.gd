@@ -26,7 +26,6 @@ func _ready():
 func authenticate(username: String, password: String):
 	auth_data["username"] = username
 	auth_data["password"] = password
-	print(URL)
 	ws.connect_to_url(URL)
 
 func _closed():
@@ -50,7 +49,6 @@ func _on_data(packet):
 	var error = test_json_conv.parse(packet.get_string_from_utf8())
 	if error == OK:
 		var payload = test_json_conv.get_data()
-		print("Received payload: ", payload)
 		
 		# Check for error messages from server
 		if payload is Dictionary and payload.has("error"):
@@ -80,20 +78,17 @@ func _on_data(packet):
 			
 			# Handle game state update
 			if is_authenticated:
-				print("Processing game state")
 				for enemy in enemies:
 					enemy.queue_free()
 				enemies = []
 				
 				for player in payload:
 					if player["username"] != game_data["username"]:
-						print("Creating enemy for player: ", player["username"])
 						var e = enemy_scene.instantiate()
 						if player.has("position"):  # Check for position object
 							e.position = Vector2(player["position"]["x"], player["position"]["y"])
 						enemies.append(e)
 						add_child(e)
-				print("Current enemy count: ", enemies.size())
 		else:
 			print("Unexpected payload format: ", payload)
 	else:
@@ -135,6 +130,5 @@ func _on_player_me_movi() -> void:
 						$Player.position.x,
 						$Player.position.y
 					]
-		print("Sending raw update from me movi: ", json_string)
 		ws.send_text(json_string)
 		
