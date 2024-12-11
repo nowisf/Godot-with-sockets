@@ -1,37 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxtys6bi4p04r"]
+[gd_scene load_steps=7 format=3 uid="uid://cxtys6bi4p04r"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://btq71f4ktrakc" path="res://icon.png" id="2"]
-[ext_resource type="Script" path="res://Player.gd" id="3"]
+[ext_resource type="Script" path="res://bola.gd" id="2_e5hk1"]
+[ext_resource type="Texture2D" uid="uid://ddhexw81q27ce" path="res://pelota.png" id="3_gcext"]
+[ext_resource type="Texture2D" uid="uid://dc1en22l6uvbd" path="res://puerta.jpg" id="4_wpskf"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(65.3168, 65.653)
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7kkq"]
+radius = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w61m5"]
+size = Vector2(148, 340)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(200, 200)
-script = ExtResource("3")
+position = Vector2(579, 163)
+floor_max_angle = 0.802851
+script = ExtResource("2_e5hk1")
+JUMP_VELOCITY = -500.0
+metadata/_edit_group_ = true
+
+[node name="Pelota" type="Sprite2D" parent="Player"]
+rotation = 6.28319
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("3_gcext")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("1")
+shape = SubResource("CircleShape2D_h7kkq")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2")
+[node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = false
 
-[node name="Button" type="Button" parent="."]
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 145.0
-offset_bottom = 69.0
-text = "exit game"
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(561, 573)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("4_wpskf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_w61m5")
 
 [node name="LoginUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 645.0
+
+[node name="Puerta" type="Sprite2D" parent="LoginUI"]
+position = Vector2(578, 327.5)
+scale = Vector2(7.78378, 1.90323)
+texture = ExtResource("4_wpskf")
 
 [node name="UsernameInput" type="LineEdit" parent="LoginUI"]
 layout_mode = 0
@@ -56,5 +78,4 @@ offset_bottom = 418.0
 text = "Join"
 
 [connection signal="me_movi" from="Player" to="." method="_on_player_me_movi"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="LoginUI/LoginButton" to="." method="_on_login_button_pressed"]

@@ -5,8 +5,7 @@ var URL = "wss://godot-with-sockets.onrender.com"
 var enemy_scene = preload("res://Enemy.tscn")
 var websocket_connected = false
 var is_authenticated = false
-
-var ultima_posicion_enviada
+		
 
 var auth_data = {
 	"type": "auth",
@@ -32,6 +31,7 @@ func authenticate(username: String, password: String):
 
 func _closed():
 	print("connection closed")
+	$Player/Camera2D.enabled = false
 	websocket_connected = false
 	is_authenticated = false
 	$Player.hide()
@@ -39,6 +39,7 @@ func _closed():
 	
 func _connected():
 	print("connected to host")
+	$Player/Camera2D.enabled = true
 	websocket_connected = true
 	# Send authentication data immediately after connection
 	var json_string = JSON.stringify(auth_data)

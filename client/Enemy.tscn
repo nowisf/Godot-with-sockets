@@ -1,17 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://bop115y1mpoke"]
 
-[ext_resource type="Texture2D" uid="uid://btq71f4ktrakc" path="res://icon.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://ddhexw81q27ce" path="res://pelota.png" id="1_ph10l"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(65.068, 65.031)
+[sub_resource type="CircleShape2D" id="CircleShape2D_41gm0"]
+radius = 34.0
 
 [node name="Enemy" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("1")
+shape = SubResource("CircleShape2D_41gm0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-3.65219e-12, -9.53674e-07)
 rotation = 3.14159
-texture = ExtResource("1")
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("1_ph10l")

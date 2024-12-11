@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://bag7nn77pfrw3"]
+
+[ext_resource type="Texture2D" uid="uid://dc1en22l6uvbd" path="res://puerta.jpg" id="1_im80e"]
+[ext_resource type="Texture2D" uid="uid://ddhexw81q27ce" path="res://pelota.png" id="2_cqahx"]
+[ext_resource type="Script" path="res://bola.gd" id="2_rvb1a"]
+[ext_resource type="Script" path="res://Player.gd" id="4_btvio"]
+[ext_resource type="Texture2D" uid="uid://btq71f4ktrakc" path="res://icon.png" id="5_hgq1i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1t7xp"]
+radius = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eci5"]
+size = Vector2(148, 340)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_twd7r"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2sud"]
+size = Vector2(65.3168, 65.653)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="bola" type="CharacterBody2D" parent="."]
+position = Vector2(579, 163)
+floor_max_angle = 0.802851
+script = ExtResource("2_rvb1a")
+JUMP_VELOCITY = -500.0
+metadata/_edit_group_ = true
+
+[node name="Pelota" type="Sprite2D" parent="bola"]
+rotation = 6.28319
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("2_cqahx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bola"]
+shape = SubResource("CircleShape2D_1t7xp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(561, 573)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("1_im80e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_0eci5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(233, 437)
+rotation = 1.99771
+physics_material_override = SubResource("PhysicsMaterial_twd7r")
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("1_im80e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_0eci5")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(729, 523)
+metadata/_edit_group_ = true
+
+[node name="Puerta" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(0, 8.9407e-07)
+scale = Vector2(1, 0.997067)
+texture = ExtResource("1_im80e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_0eci5")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(200, 200)
+script = ExtResource("4_btvio")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_q2sud")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("5_hgq1i")

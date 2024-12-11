@@ -1,7 +1,9 @@
 res://default_env.tres
-res://Enemy.tscn
 res://Game.tscn
+res://Login.gd
 res://menu.tscn
-res://export_presets.cfg
-res://Player.gd
 res://Game.gd
+res://node_2d.tscn
+res://bola.gd
+res://Enemy.tscn
+res://export_presets.cfg
