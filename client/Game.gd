@@ -1,7 +1,7 @@
 extends Node2D
 
 var ws = WebSocketPeer.new()
-var URL = "ws://godot-with-sockets.onrender.com:10000"
+var URL = "wss://godot-with-sockets.onrender.com"
 var enemy_scene = preload("res://Enemy.tscn")
 var websocket_connected = false
 var is_authenticated = false
@@ -27,6 +27,7 @@ func _ready():
 func authenticate(username: String, password: String):
 	auth_data["username"] = username
 	auth_data["password"] = password
+	print(URL)
 	ws.connect_to_url(URL)
 
 func _closed():
