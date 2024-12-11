@@ -13,6 +13,9 @@ signal me_movi()
 func _physics_process(delta: float) -> void:
 	var posicionInicial = position
 	
+	if Input.is_action_just_pressed("ui_reset"):
+		position = Vector2(550,-550)
+		print("hola")
 	
 	
 	# Add the gravity.

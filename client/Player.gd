@@ -4,10 +4,11 @@ signal me_movi()
 
 @export var speed: int = 200
 @export var id: int = 0
+var posicionInicial = position
 
 func get_input():
 	var direction = Vector2()
-	var posicionInicial = position
+	
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
 	if Input.is_action_pressed('ui_left'):
@@ -16,7 +17,9 @@ func get_input():
 		direction.y += 1
 	if Input.is_action_pressed('ui_up'):
 		direction.y -= 1
+	
 	velocity = direction.normalized() * speed	
+	
 
 	
 

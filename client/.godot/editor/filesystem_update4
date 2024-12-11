@@ -7,3 +7,4 @@ res://node_2d.tscn
 res://bola.gd
 res://Enemy.tscn
 res://export_presets.cfg
+res://Player.gd
