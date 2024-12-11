@@ -2,4 +2,7 @@
 [ ] que mismo usuario no pueda loguearse mas de una vez al mismo tiempo
 [x] integrar proyecto "jump" 
 [ ] mantener posicion
-[ ] escalar fondo empezada
+  [ ] decifrar a que me referi con mantener posicion
+[x] escalar fondo empezada
+
+[ ] poder saltar mientras se va bajando, que no se despegue del suelo
