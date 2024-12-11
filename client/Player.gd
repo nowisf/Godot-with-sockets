@@ -16,7 +16,7 @@ func get_input():
 		direction.y += 1
 	if Input.is_action_pressed('ui_up'):
 		direction.y -= 1
-	velocity = direction.normalized() * speed
+	velocity = direction.normalized() * speed	
 
 	
 

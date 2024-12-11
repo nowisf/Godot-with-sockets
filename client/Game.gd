@@ -1,7 +1,7 @@
 extends Node2D
 
 var ws = WebSocketPeer.new()
-var URL = "ws://localhost:9001/"
+var URL = "ws://godot-with-sockets.onrender.com:10000"
 var enemy_scene = preload("res://Enemy.tscn")
 var websocket_connected = false
 var is_authenticated = false

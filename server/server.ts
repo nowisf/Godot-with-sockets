@@ -33,7 +33,7 @@ function hashPassword(password: string): string {
   return crypto.createHash("sha256").update(password).digest("hex");
 }
 
-const port: number = 9001;
+const port: number = 10000;
 const wss: WebSocket.Server = new WebSocket.Server({ port });
 
 let gameState: GameStatePlayer[] = [];
@@ -50,17 +50,22 @@ wss.on("connection", (ws: WebSocket) => {
     // Handle authentication message
     if (data.type === "auth") {
       const authData = data as AuthMessage;
-      
-      if (!authData.username || !authData.password || 
-          typeof authData.username !== "string" || 
-          typeof authData.password !== "string") {
+
+      if (
+        !authData.username ||
+        !authData.password ||
+        typeof authData.username !== "string" ||
+        typeof authData.password !== "string"
+      ) {
         console.error("Invalid authentication data");
         ws.close(1008, "Invalid authentication data");
         return;
       }
 
       // Check if user exists
-      const user = UserDB.getByUsername.get({ username: authData.username }) as User | undefined;
+      const user = UserDB.getByUsername.get({ username: authData.username }) as
+        | User
+        | undefined;
 
       if (!user) {
         // If user doesn't exist, create new user
@@ -73,18 +78,18 @@ wss.on("connection", (ws: WebSocket) => {
 
           console.log("Creating user:", { ...newUser, password: "***" });
           UserDB.create.run(newUser);
-          
+
           // Add to authenticated clients
           authenticatedClients.set(ws, authData.username);
-          
+
           // Add to game state
           const newPlayer: GameStatePlayer = {
             id: gameState.length + 1,
             username: authData.username,
-            position: { x: 0, y: 0 }
+            position: { x: 0, y: 0 },
           };
           gameState.push(newPlayer);
-          
+
           console.log(`new player connected: ${authData.username}`);
         } catch (err) {
           console.error("Error creating user:", err);
@@ -108,16 +113,18 @@ wss.on("connection", (ws: WebSocket) => {
 
         // Update last connection
         UserDB.connect.run({ username: authData.username });
-        
+
         // Add to authenticated clients
         authenticatedClients.set(ws, authData.username);
-        
+
         // Add to game state if not already present
-        if (!gameState.some(player => player.username === authData.username)) {
+        if (
+          !gameState.some((player) => player.username === authData.username)
+        ) {
           const newPlayer: GameStatePlayer = {
             id: gameState.length + 1,
             username: authData.username,
-            position: { x: 0, y: 0 }
+            position: { x: 0, y: 0 },
           };
           gameState.push(newPlayer);
           console.log(`new player connected: ${authData.username}`);
@@ -127,7 +134,7 @@ wss.on("connection", (ws: WebSocket) => {
     // Handle position updates
     else if (data.msg_type === "player_pos") {
       const posData = data as PositionMessage;
-      
+
       // Verify this is an authenticated client
       const username = authenticatedClients.get(ws);
       if (!username || username !== posData.data.username) {
@@ -137,11 +144,11 @@ wss.on("connection", (ws: WebSocket) => {
       }
 
       // Update game state
-      const player = gameState.find(p => p.username === username);
+      const player = gameState.find((p) => p.username === username);
       if (player) {
         player.position = {
           x: posData.data.x,
-          y: posData.data.y
+          y: posData.data.y,
         };
       }
     }
@@ -159,7 +166,7 @@ wss.on("connection", (ws: WebSocket) => {
     const username = authenticatedClients.get(ws);
     if (username) {
       UserDB.disconnect.run({ username });
-      gameState = gameState.filter(player => player.username !== username);
+      gameState = gameState.filter((player) => player.username !== username);
       authenticatedClients.delete(ws);
       console.log(`player disconnected: ${username}`);
     }
