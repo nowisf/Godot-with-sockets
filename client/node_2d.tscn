@@ -24,7 +24,6 @@ size = Vector2(65.3168, 65.653)
 position = Vector2(579, 163)
 floor_max_angle = 0.802851
 script = ExtResource("2_rvb1a")
-JUMP_VELOCITY = -500.0
 metadata/_edit_group_ = true
 
 [node name="Pelota" type="Sprite2D" parent="bola"]

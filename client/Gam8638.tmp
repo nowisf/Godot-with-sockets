@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxtys6bi4p04r"]
+[gd_scene load_steps=8 format=3 uid="uid://cxtys6bi4p04r"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1"]
 [ext_resource type="Script" path="res://bola.gd" id="2_e5hk1"]
 [ext_resource type="Texture2D" uid="uid://ddhexw81q27ce" path="res://pelota.png" id="3_gcext"]
 [ext_resource type="Texture2D" uid="uid://dc1en22l6uvbd" path="res://puerta.jpg" id="4_wpskf"]
 [ext_resource type="Texture2D" uid="uid://c136jeg4yara6" path="res://image (2).png" id="5_va35a"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1puii"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7kkq"]
 radius = 34.0
@@ -19,10 +17,8 @@ script = ExtResource("1")
 
 [node name="Player" type="RigidBody2D" parent="."]
 position = Vector2(677, -497)
-mass = 0.492
-physics_material_override = SubResource("PhysicsMaterial_1puii")
-gravity_scale = 1.543
 script = ExtResource("2_e5hk1")
+JUMP_VELOCITY = -500.0
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -34,8 +30,6 @@ texture = ExtResource("3_gcext")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_h7kkq")
-
-[node name="RayCast2D" type="RayCast2D" parent="Player"]
 
 [node name="LoginUI" type="Control" parent="."]
 layout_mode = 3
@@ -218,7 +212,7 @@ texture = ExtResource("5_va35a")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puertas/StaticBody2D13"]
 position = Vector2(1120.77, 770.433)
-polygon = PackedVector2Array(-1243, -1248, -1072, -1255, -991, -1186, -958, -1072, -965, -1017, -981, -932, -796, -727, -779, -677, -851, -646, -851, -487, -791, -439, -777, -398, -793, -366, -825, -359, -858, -365, -894, -376, -935, -388, -958, -466, -956.596, -504.638, -977, -565, -1026, -559, -1067, -566, -1098, -575, -1134, -601, -1148, -585, -1160, -569, -1185, -562, -1216, -559, -1246, -562, -1275, -568, -1300, -580, -1329, -542, -1310, -488, -1325, -434, -1360, -403, -1415, -386, -1476, -394, -1473, -466, -1437.11, -488.344, -1426, -532, -1443, -570, -1431, -606, -1454, -663, -1498, -658, -1525, -670, -1510, -710, -1498.85, -775.699, -1474.58, -799.599, -1447.69, -852.381, -1415, -905, -1315, -966, -1333, -1054, -1322, -1091, -1283, -1203)
+polygon = PackedVector2Array(-1243, -1248, -1072, -1255, -991, -1186, -958, -1072, -965, -1017, -981, -932, -796, -727, -779, -677, -851, -646, -851, -487, -791, -439, -777, -398, -793, -366, -825, -359, -858, -365, -894, -376, -935, -388, -958, -466, -956.596, -504.638, -977, -565, -1026, -559, -1067, -566, -1098, -575, -1134, -601, -1148, -585, -1160, -569, -1185, -562, -1216, -559, -1246, -562, -1275, -568, -1300, -580, -1329, -542, -1310, -488, -1325, -434, -1360, -403, -1415, -386, -1476, -394, -1473, -466, -1437.11, -488.344, -1426, -532, -1443, -570, -1431, -606, -1454, -663, -1498, -658, -1525, -670, -1510, -710, -1461, -808, -1415, -905, -1315, -966, -1333, -1054, -1322, -1091, -1283, -1203)
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="Puertas"]
 position = Vector2(1313, 485)

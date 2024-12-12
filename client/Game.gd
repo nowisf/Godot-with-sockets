@@ -22,6 +22,7 @@ var enemies = []
 func _ready():
 	$Player.hide()	
 	$LoginUI.show()
+	$Player.on = false
 
 func authenticate(username: String, password: String):
 	auth_data["username"] = username
@@ -35,11 +36,14 @@ func _closed():
 	is_authenticated = false
 	$Player.hide()
 	$LoginUI.show()
+	$Player.on = false
 	
 func _connected():
 	print("connected to host")
+	$Player.on = true
 	$Player/Camera2D.enabled = true
 	websocket_connected = true
+	$Player.process_mode = Node.PROCESS_MODE_INHERIT
 	# Send authentication data immediately after connection
 	var json_string = JSON.stringify(auth_data)
 	ws.send_text(json_string)
