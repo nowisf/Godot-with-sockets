@@ -6,7 +6,7 @@ extends RigidBody2D
 @export var  on = false
 		
 signal me_movi()
-
+	
 func _physics_process(delta: float) -> void:
 	var posicionInicial = position
 	

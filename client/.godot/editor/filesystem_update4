@@ -4,4 +4,4 @@ res://menu.tscn
 res://node_2d.tscn
 res://Enemy.tscn
 res://bola.gd
-res://Game.gd
+res://export_presets.cfg

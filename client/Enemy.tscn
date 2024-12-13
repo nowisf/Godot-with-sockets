@@ -7,6 +7,14 @@ radius = 34.0
 
 [node name="Enemy" type="Node2D"]
 
+[node name="Label" type="Label" parent="."]
+offset_left = -1.0
+offset_top = -56.0
+offset_right = 39.0
+offset_bottom = -33.0
+text = "hola"
+horizontal_alignment = 1
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
